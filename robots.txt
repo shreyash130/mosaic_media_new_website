@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /404.html
+Disallow: /coming-soon.html
+
+Sitemap: https://mosaicmedia.org/sitemap.xml

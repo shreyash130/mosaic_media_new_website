@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Creator for Mosaic Media</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --yellow: #FFD700;
+            --light-gray: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            padding: 30px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--yellow);
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--yellow);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+        
+        .favicon-preview {
+            width: 100px;
+            height: 100px;
+            background-color: var(--black);
+            border: 3px solid var(--yellow);
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--yellow);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .steps {
+            background-color: #111111;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .steps ol {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+        
+        .steps li {
+            margin-bottom: 15px;
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+        
+        .code {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            color: var(--yellow);
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--yellow);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+        
+        .note p {
+            margin-bottom: 0;
+            color: #f0f0f0;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Favicon Guide for Mosaic Media</h1>
+        
+        <div class="favicon-preview">M</div>
+        
+        <p>This guide provides instructions for creating the perfect favicon for the Mosaic Media website, matching our bold black and energetic yellow color scheme.</p>
+        
+        <div class="steps">
+            <h2>Creation Steps</h2>
+            <ol>
+                <li>Take a screenshot of the "M" preview above or create a similar design</li>
+                <li>Crop to a perfect square</li>
+                <li>Resize to multiple standard sizes:
+                    <ul>
+                        <li>16x16 pixels (browser tabs)</li>
+                        <li>32x32 pixels (taskbar, desktop)</li>
+                        <li>48x48 pixels (modern browsers)</li>
+                        <li>192x192 pixels (mobile home screens)</li>
+                    </ul>
+                </li>
+                <li>Save as ICO format for maximum compatibility</li>
+                <li>Place in the root directory as "favicon.ico"</li>
+            </ol>
+        </div>
+        
+        <h2>HTML Implementation</h2>
+        <p>Add these tags to the &lt;head&gt; section of all HTML pages:</p>
+        
+        <div class="code">
+            &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;<br>
+            &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;<br>
+            &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;<br>
+            &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;<br>
+            &lt;link rel="manifest" href="/site.webmanifest"&gt;
+        </div>
+        
+        <h2>Alternative Text-Based Favicon</h2>
+        <p>For a minimalist approach, use the text "M" in our brand colors:</p>
+        <ul>
+            <li>Background: Pure black (#000000)</li>
+            <li>Text: Energetic yellow (#FFD700)</li>
+            <li>Font: Inter Black (900 weight)</li>
+            <li>Centered with generous padding</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Pro Tip:</strong> Test your favicon across different browsers and devices to ensure visibility against various background colors. The high contrast between black and yellow ensures excellent visibility in all contexts.</p>
+        </div>
+    </div>
+</body>
+</html>

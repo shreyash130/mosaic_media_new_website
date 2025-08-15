@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaic Media Image Placeholders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --charcoal: #111111;
+            --dark-gray: #1a1a1a;
+            --yellow: #FFD700;
+            --light-gray: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 3rem;
+            color: var(--yellow);
+            font-weight: 900;
+        }
+        
+        .note {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--charcoal), var(--dark-gray));
+            border-left: 5px solid var(--yellow);
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .note h2 {
+            color: var(--yellow);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .note p {
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .placeholder-item {
+            background: linear-gradient(135deg, var(--charcoal), var(--dark-gray));
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .placeholder-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .placeholder-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--dark-gray), var(--charcoal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .placeholder-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.5));
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .placeholder-text {
+            color: #999999;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .placeholder-info {
+            padding: 25px;
+        }
+        
+        .placeholder-info h3 {
+            margin-bottom: 15px;
+            color: var(--yellow);
+            font-size: 1.6rem;
+        }
+        
+        .placeholder-info p {
+            color: #cccccc;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            font-size: 2.5rem;
+            color: var(--yellow);
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--yellow);
+            border-radius: 2px;
+        }
+        
+        @media (max-width: 992px) {
+            .placeholder-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .placeholder-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Mosaic Media Image Placeholders</h1>
+        
+        <div class="note">
+            <h2>Dynamic Image Implementation Guide</h2>
+            <p>These placeholders represent the cutting-edge visual content needed for the Mosaic Media website. All images should be treated to work with our bold black (#000000) and energetic yellow (#FFD700) color scheme.</p>
+            <p>Images should feature high contrast, dynamic compositions, and authentic representations of social impact work. The animated gradient overlays demonstrate the dynamic nature of our brand.</p>
+        </div>
+        
+        <h2 class="section-title">Hero & Mission Sections</h2>
+        
+        <div class="placeholder-grid">
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Hero Background</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Main Hero Image</h3>
+                    <p>Stunning image of diverse team in action. Should work with animated text overlay and gradient effects.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Mission Team</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Our Team</h3>
+                    <p>Skilled professionals at work creating social impact through purpose-driven communication.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Process & Services</h2>
+        
+        <div class="placeholder-grid">
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Impact Campaigns</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Discovery Process</h3>
+                    <p>Visual representation of diagnosing problems and identifying opportunities for sustainability.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Social Platforms</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Design Process</h3>
+                    <p>Depicting the disassembly of ideas and crash test of cliches to generate unique concepts.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Data for Good</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Development Process</h3>
+                    <p>Interacting with communities through clever, dynamic and effective communication.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Content Studio</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Deliver Process</h3>
+                    <p>Reaching out to audiences deploying the most effective methods and channels.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Digital Activism</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Strategy</h3>
+                    <p>Crafting purpose-driven communication strategies that align with social impact goals.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Sustainable Tech</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Promotion</h3>
+                    <p>Amplifying social messages through innovative and culturally relevant channels.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Client Testimonials & Case Studies</h2>
+        
+        <div class="placeholder-grid">
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Climate Action</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Youth Climate Initiative</h3>
+                    <p>Case study showing how we helped reframe their mission to reach young people effectively.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Education Equity</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>GreenStep NGO</h3>
+                    <p>Visual story of how we helped build a movement through purpose-driven campaigns.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Voting Rights</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Happy Client</h3>
+                    <p>Client with their successful campaign in a real-world setting.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Client Headshot</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Client Testimonial</h3>
+                    <p>Professional headshot of a client representative for testimonial section.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Insights & Social Content</h2>
+        
+        <div class="placeholder-grid">
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Social Impact Meme</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Social Impact Meme</h3>
+                    <p>Humorous yet insightful meme about social change and communication.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Climate Action Meme</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Climate Action Meme</h3>
+                    <p>Witty content about environmental sustainability and youth engagement.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Voting Rights Meme</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Voting Rights Meme</h3>
+                    <p>Creative content about civic participation and democratic engagement.</p>
+                </div>
+            </div>
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Education Equity Meme</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Education Equity Meme</h3>
+                    <p>Thought-provoking meme about equal access to learning opportunities.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Contact & Footer</h2>
+        
+        <div class="placeholder-grid">
+            <div class="placeholder-item">
+                <div class="placeholder-image">
+                    <div class="placeholder-text">Office Location</div>
+                </div>
+                <div class="placeholder-info">
+                    <h3>Office Interior</h3>
+                    <p>Our creative workspace featuring collaborative areas and design studios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
