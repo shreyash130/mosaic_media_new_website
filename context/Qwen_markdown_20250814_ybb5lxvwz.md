@@ -1,0 +1,7 @@
+- **Hero Background**: Looping 10-second video of diverse youth + animated gradient (black → yellow)
+- **Process Icons**: Hover-triggered micro-animations (e.g., lightbulb flashes on “Design”)
+- **Poll Widget**: Interactive quiz in “Development” step (“Which message would you share?”)
+- **Client Reel**: TikTok-style vertical video carousel (auto-plays on scroll)
+- **Newsletter CTA**: Emoji reaction on submit (e.g., 🌱 appears)
+- **Meme Insert**: Hidden easter egg—clicking a yellow tile plays a 3-second meme about “nonprofit jargon”
+- **Sound Design**: Subtle audio cue on button hover (optional for desktop)
