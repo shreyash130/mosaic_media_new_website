@@ -1,49 +1,4 @@
-// Custom cursor
-const cursor = document.querySelector('.cursor');
-const follower = document.querySelector('.cursor-follower');
 
-// Mouse coordinates
-let mouseX = 0;
-let mouseY = 0;
-let posX = 0;
-let posY = 0;
-
-// Update mouse coordinates
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    // Move cursor immediately
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
-});
-
-// Animate follower with delay
-function animateFollower() {
-    // Calculate distance between cursor and follower
-    posX += (mouseX - posX) / 5;
-    posY += (mouseY - posY) / 5;
-    
-    // Move follower
-    follower.style.left = `${posX}px`;
-    follower.style.top = `${posY}px`;
-    
-    requestAnimationFrame(animateFollower);
-}
-
-animateFollower();
-
-// Add hover effect to interactive elements
-const hoverElements = document.querySelectorAll('a, button, .btn, .service-card, .work-item, .testimonial-card, .meme-item, .social-icon, .value-item');
-hoverElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-        follower.classList.add('hover');
-    });
-    
-    element.addEventListener('mouseleave', () => {
-        follower.classList.remove('hover');
-    });
-});
 
 // Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
@@ -186,27 +141,7 @@ serviceCards.forEach(card => {
     });
 });
 
-// Process icons hover effects
-const processIcons = document.querySelectorAll('.card-icon');
-processIcons.forEach(icon => {
-    icon.addEventListener('mouseenter', function() {
-        // Add micro-animation based on icon type
-        const iconClass = this.querySelector('i').className;
-        if (iconClass.includes('lightbulb')) {
-            this.style.transform = 'scale(1.2) rotate(10deg)';
-        } else if (iconClass.includes('search')) {
-            this.style.transform = 'scale(1.2)';
-        } else if (iconClass.includes('users')) {
-            this.style.transform = 'scale(1.2)';
-        } else if (iconClass.includes('chart')) {
-            this.style.transform = 'scale(1.2)';
-        }
-    });
-    
-    icon.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
-});
+
 
 // Testimonial carousel functionality
 let testimonialIndex = 0;
@@ -242,53 +177,54 @@ window.addEventListener('scroll', () => {
 
 // Dynamic gradient for hero section
 const heroGradient = document.querySelector('.hero-gradient');
+const heroGradientSecondary = document.querySelector('.hero-gradient-secondary');
 if (heroGradient) {
-    let gradientAngle = 0;
+    let time = 0;
     
     function animateGradient() {
-        gradientAngle = (gradientAngle + 0.5) % 360;
-        heroGradient.style.background = `linear-gradient(${gradientAngle}deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%)`;
+        time += 0.005;
+        
+        // Create a more complex gradient with multiple color stops
+        const r1 = Math.floor(255 + 0 * Math.sin(time));
+        const g1 = Math.floor(215 + 40 * Math.sin(time * 1.2));
+        const b1 = Math.floor(0 + 0 * Math.sin(time * 1.5));
+        
+        const r2 = Math.floor(255 + 0 * Math.sin(time * 1.3));
+        const g2 = Math.floor(165 + 90 * Math.sin(time * 0.8));
+        const b2 = Math.floor(0 + 0 * Math.sin(time * 0.7));
+        
+        const r3 = Math.floor(0 + 0 * Math.sin(time * 0.9));
+        const g3 = Math.floor(0 + 0 * Math.sin(time * 1.1));
+        const b3 = Math.floor(0 + 0 * Math.sin(time * 1.4));
+        
+        heroGradient.style.background = `linear-gradient(
+            ${time * 20}deg,
+            rgba(${r1}, ${g1}, ${b1}, 0.3) 0%,
+            rgba(${r2}, ${g2}, ${b2}, 0.2) 30%,
+            rgba(${r2}, ${g2}, ${b2}, 0.15) 50%,
+            rgba(${r3}, ${g3}, ${b3}, 0) 70%
+        )`;
+        
+        // Animate secondary gradient
+        if (heroGradientSecondary) {
+            const posX = 20 + 60 * Math.sin(time * 0.7);
+            const posY = 20 + 60 * Math.cos(time * 0.5);
+            const alpha = 0.05 + 0.1 * Math.sin(time * 1.3);
+            
+            heroGradientSecondary.style.background = `radial-gradient(circle at ${posX}% ${posY}%, rgba(255, 215, 0, ${alpha}) 0%, transparent 40%)`;
+        }
+        
         requestAnimationFrame(animateGradient);
     }
     
     animateGradient();
 }
 
-// Social media button effects
-const socialIcons = document.querySelectorAll('.social-icon');
-socialIcons.forEach(icon => {
-    icon.addEventListener('click', function(e) {
-        e.preventDefault();
-        const platform = this.querySelector('i').className;
-        alert(`Connecting to our ${platform.split('-')[1].toUpperCase()} channel! Follow us for daily social impact inspiration.`);
-    });
-});
 
-// Work item hover effect enhancement
-const workItems = document.querySelectorAll('.work-item');
-workItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-        this.style.transition = 'transform 0.3s ease';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
 
-// Value item hover effect
-const valueItems = document.querySelectorAll('.value-item');
-valueItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        // Animated yellow brushstroke transition effect
-        this.style.boxShadow = '0 15px 35px rgba(255, 215, 0, 0.2)';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-    });
-});
+
+
+
 
 // Initialize all animations on page load
 document.addEventListener('DOMContentLoaded', function() {
